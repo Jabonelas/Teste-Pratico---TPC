@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ArrayOfArrayOfArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ArrayOfArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\israe\source\repos\Teste_Pratico_API_TPC\Teste_Pratico_API_TPC\Controllers\TarefasController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\israe\source\repos\Teste_Pratico_API_TPC\Teste_Pratico_API_TPC\Controllers\UsuariosController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\israe\source\repos\Teste_Pratico_API_TPC\Teste_Pratico_API_TPC\Extensions\InjecaoDependenciaJWT.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\israe\source\repos\Teste_Pratico_API_TPC\Teste_Pratico_API_TPC\Extensions\InjecaoDependenciaSwagger.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\israe\source\repos\Teste_Pratico_API_TPC\Teste_Pratico_API_TPC\DTOs\UserToken.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\israe\source\repos\Teste_Pratico_API_TPC\Teste_Pratico_API_TPC\Teste_Pratico_API_TPC.csproj</string>
+    </ArrayOfString>
+  </ArrayOfArrayOfString>
+</ArrayOfArrayOfArrayOfString>

@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Teste_Pratico_API_TPC</name>
+    </assembly>
+    <members>
+        <member name="M:Teste_Pratico_API_TPC.Controllers.TarefasController.CadastrarTarefa(System.Int32,Teste_Pratico_API_TPC.DTOs.Tarefas.TarefaCadastroDTO)">
+             <summary>
+             Cadastra uma nova tarefa para um usuário específico
+             </summary>
+             <remarks>
+             Requer autenticação via JWT.
+            
+             Exemplo de requisição:
+            
+                 POST /usuarios/1/tarefas
+                 {
+                    "titulo": "Implementar API",
+                    "descricao": "Desenvolver endpoints da aplicação",
+                    "status": "pendente"
+                 }
+            
+             Exemplo de resposta de sucesso:
+            
+                 "message": "Tarefa cadastrada com sucesso!"
+            
+             </remarks>
+             <param name="_idUsuario">ID do usuário (número inteiro positivo) que receberá a tarefa</param>
+             <param name="_dadosTarefaCadastro">DTO com os dados necessários para cadastro da tarefa</param>
+             <returns>Mensagem de confirmação do cadastro</returns>
+             <response code="201">Retorna mensagem de sucesso ao cadastrar a tarefa</response>
+             <response code="400">Se os dados da tarefa forem inválidos</response>
+             <response code="401">Acesso não autorizado (token inválido ou ausente)</response>
+             <response code="404">Se o usuário não for encontrado</response>
+             <response code="422">Status inválido. Informe um dos seguintes: 'pendente', 'em andamento' ou 'concluído'</response>
+             <response code="500">Erro interno no servidor</response>
+        </member>
+        <member name="M:Teste_Pratico_API_TPC.Controllers.TarefasController.ListaTarefas(System.Int32)">
+             <summary>
+             Lista todas as tarefas de um usuário específico
+             </summary>
+             <remarks>
+             Requer autenticação via JWT.
+            
+             Exemplo de requisição:
+            
+                 GET /usuarios/1/tarefas
+            
+             Exemplo de resposta de sucesso:
+            
+                 [
+                    {
+                       "id": 1,
+                       "titulo": "Implementar API",
+                       "descricao": "Desenvolver endpoints da aplicação",
+                       "status": "concluído"
+                    },
+                    {
+                       "id": 2,
+                       "titulo": "Criar documentação",
+                       "descricao": "Documentar endpoints no Swagger",
+                       "status": "pendente"
+                    }
+                 ]
+            
+             </remarks>
+             <param name="_idUsuario">ID do usuário (número inteiro positivo)</param>
+             <returns>Lista de tarefas do usuário no formato JSON</returns>
+             <response code="200">Retorna a lista de tarefas do usuário</response>
+             <response code="401">Acesso não autorizado (token inválido ou ausente)</response>
+             <response code="404">Se o usuário não for encontrado</response>
+             <response code="500">Erro interno no servidor</response>
+        </member>
+        <member name="M:Teste_Pratico_API_TPC.Controllers.UsuariosController.CadastrarUsuario(Teste_Pratico_API_TPC.DTOs.Usuarios.UsuarioCadastroDTO)">
+             <summary>
+             Cadastra um novo usuário no sistema
+             </summary>
+             <remarks>
+             Exemplo de requisição:
+            
+                 POST /usuarios
+                 {
+                    "nome": "João Silva",
+                    "email": "joao@exemplo.com",
+                    "senha": "SuaSenhaForte@123",
+                 }
+            
+             Exemplo de resposta de sucesso:
+            
+                 {
+                    "message": "Usuário cadastrado com sucesso!"
+                 }
+            
+             </remarks>
+             <param name="_dadosUsuarioCadastro">DTO com os dados necessários para cadastro</param>
+             <returns>Mensagem de sucesso ou erro detalhado</returns>
+             <response code="201">Usuário cadastrado com sucesso</response>
+             <response code="400">Se os dados forem inválidos</response>
+             <response code="409">Se houver conflito na operação (ex: Email já cadastrado)</response>
+             <response code="500">Erro interno no servidor</response>
+        </member>
+        <member name="M:Teste_Pratico_API_TPC.Controllers.UsuariosController.UsuarioID(System.Int32)">
+             <summary>
+             Obtém um usuário específico pelo ID
+             </summary>
+             <remarks>
+             Requer autenticação via JWT.
+            
+             Exemplo de requisição:
+            
+                 GET /usuarios/1
+            
+             Exemplo de resposta de sucesso:
+            
+                 {
+                    "id": 1,
+                    "nome": "João Silva",
+                    "email": "joao@exemplo.com",
+                 }
+            
+             </remarks>
+             <param name="_idUsuario">ID do usuário a ser consultado (número inteiro)</param>
+             <returns>Dados completos do usuário no formato JSON</returns>
+             <response code="200">Retorna os dados do usuário solicitado</response>
+             <response code="401">Acesso não autorizado (token inválido ou ausente)</response>
+             <response code="404">Se nenhum usuário for encontrado com o ID especificado</response>
+             <response code="500">Erro interno no servidor</response>
+        </member>
+        <member name="M:Teste_Pratico_API_TPC.Controllers.UsuariosController.ListaUsuarios">
+             <summary>
+             Retorna a lista completa de usuários cadastrados
+             </summary>
+             <remarks>
+             Requer autenticação via JWT.
+            
+             Exemplo de resposta de sucesso:
+            
+                 GET /usuarios
+                 [
+                    {
+                       "id": 1,
+                       "nome": "João Silva",
+                       "email": "joao@exemplo.com"
+                    },
+                    {
+                       "id": 2,
+                       "nome": "Maria Souza",
+                       "email": "maria@exemplo.com"
+                    }
+                 ]
+            
+             </remarks>
+             <returns>Lista de usuários no formato JSON</returns>
+             <response code="200">Retorna a lista de usuários cadastrados</response>
+             <response code="401">Acesso não autorizado (token inválido ou ausente)</response>
+             <response code="404">Se nenhum usuário for encontrado</response>
+             <response code="500">Erro interno no servidor</response>
+        </member>
+        <member name="M:Teste_Pratico_API_TPC.Controllers.UsuariosController.UsuarioLogin(Teste_Pratico_API_TPC.DTOs.Usuarios.UsuariosLoginDTO)">
+             <summary>
+             Autentica um usuário e retorna um token JWT
+             </summary>
+             <remarks>
+             Exemplo de requisição:
+            
+                 POST /login
+                 {
+                    "email": "usuario@exemplo.com",
+                    "senha": "SuaSenhaSegura123"
+                 }
+            
+             Exemplo de resposta de sucesso:
+            
+                 {
+                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                 }
+            
+             </remarks>
+             <param name="_usuarioLogin">DTO contendo email e senha do usuário</param>
+             <returns>Token JWT para autenticação</returns>
+             <response code="200">Retorna o token JWT gerado</response>
+             <response code="400">Se as credenciais forem inválidas ou estiverem em formato incorreto</response>
+             <response code="401">Se a autenticação falhar (usuário/senha incorretos)</response>
+             <response code="500">Erro interno no servidor</response>
+        </member>
+    </members>
+</doc>

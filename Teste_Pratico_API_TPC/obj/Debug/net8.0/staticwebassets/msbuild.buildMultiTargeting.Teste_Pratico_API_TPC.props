@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Teste_Pratico_API_TPC.props" />
+</Project>

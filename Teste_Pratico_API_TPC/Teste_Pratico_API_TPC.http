@@ -1,0 +1,6 @@
+@Teste_Pratico_API_TPC_HostAddress = http://localhost:5094
+
+GET {{Teste_Pratico_API_TPC_HostAddress}}/usuarios/
+Accept: application/json
+
+###
